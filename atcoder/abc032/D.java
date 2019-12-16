@@ -33,6 +33,7 @@ public class D {
     }
 
     public static long rec(int i, long j) {
+        long res;
         /* 品物は 0〜N-1 個目まであり、即ち N 個以上は「使える品が無い」として 0 である */
         if(i == N) {
             return 0;
@@ -41,15 +42,17 @@ public class D {
             if(calculated.get(i).get(j) != null) {
                 return calculated.get(i).get(j);
             } else {
-                calculated.get(i).put(j, rec(i + 1, j));
-                return calculated.get(i).get(j);
+                res = rec(i + 1, j);
+                calculated.get(i).put(j, res);
+                return res;
             }
         } else {
             if(calculated.get(i).get(j) != null) {
                 return calculated.get(i).get(j);
             } else {
-                calculated.get(i).put(j, Math.max(v[i] + rec(i + 1, j - w[i]), rec(i + 1, j)));
-                return calculated.get(i).get(j);
+                res = Math.max(v[i] + rec(i + 1, j - w[i]), rec(i + 1, j));
+                calculated.get(i).put(j, res);
+                return res;
             }
         }
     }
