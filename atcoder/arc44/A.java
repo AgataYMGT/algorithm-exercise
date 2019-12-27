@@ -9,12 +9,12 @@ public class A {
 			System.out.println("Not Prime");
 		} else if(n == 2) {
 			System.out.println("Prime");
-		} else if(n % 2 == 0) {
+		} else if(n % 2 == 0 || n % 5 == 0) {
 			System.out.println("Not Prime");
 		} else {
 			for(int i = 3; i <= Math.sqrt(n); i += 2) {
 				if(n % i == 0) {
-					System.out.println((sumDigits(n) % 3 == 0 || n % 10 == 5) ? "Not Prime" : "Prime");
+					System.out.println((sumDigits(n) % 3 == 0) ? "Not Prime" : "Prime");
 					return;
 				}
 			}
