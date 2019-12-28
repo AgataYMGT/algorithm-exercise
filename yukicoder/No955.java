@@ -10,6 +10,9 @@ public class No955 {
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int c = sc.nextInt();
+		BigDecimal A = new BigDecimal(a);
+		BigDecimal B = new BigDecimal(b);
+		BigDecimal C = new BigDecimal(c);
 
 		if(a == 0) {
 			if(b == 0) {
@@ -22,14 +25,10 @@ public class No955 {
 				}
 			} else {
 				System.out.println(1);
-				System.out.println(-c);
+				System.out.println(BigDecimal.ZERO.subtract(C).divide(B, 20, RoundingMode.HALF_EVEN));
 				return;
 			}
 		}
-
-		BigDecimal A = new BigDecimal(a);
-		BigDecimal B = new BigDecimal(b);
-		BigDecimal C = new BigDecimal(c);
 
 		BigDecimal D = new BigDecimal(b);
 		D = D.multiply(B).subtract(new BigDecimal(4).multiply(A).multiply(C));
