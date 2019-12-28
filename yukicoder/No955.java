@@ -36,8 +36,11 @@ public class No955 {
 
 		if(D.compareTo(BigDecimal.ZERO) == 1) {
 			System.out.println(2);
-			System.out.println(BigDecimal.ZERO.subtract(B).subtract(sqrt(D)).divide(new BigDecimal(2).multiply(A), 20, RoundingMode.HALF_EVEN));
-			System.out.println(BigDecimal.ZERO.subtract(B).add(sqrt(D)).divide(new BigDecimal(2).multiply(A), 20, RoundingMode.HALF_EVEN));
+
+			BigDecimal answer1 = BigDecimal.ZERO.subtract(B).subtract(sqrt(D)).divide(new BigDecimal(2).multiply(A), 20, RoundingMode.HALF_EVEN);
+			BigDecimal answer2 = BigDecimal.ZERO.subtract(B).add(sqrt(D)).divide(new BigDecimal(2).multiply(A), 20, RoundingMode.HALF_EVEN);
+			System.out.println(answer1.min(answer2));
+			System.out.println(answer1.max(answer2));
 		} else if(D.compareTo(BigDecimal.ZERO) == 0) {
 			System.out.println(1);
 			System.out.println(BigDecimal.ZERO.subtract(B).divide(new BigDecimal(2).multiply(A), 20, RoundingMode.HALF_EVEN));
@@ -50,7 +53,7 @@ public class No955 {
 		BigDecimal a2 = a.add(BigDecimal.ZERO);
 
 		for(int i = 0; i < 50; i++) {
-			a2 = a2.subtract(a2.pow(2).subtract(a).divide(a2.multiply(new BigDecimal(2)), 20, RoundingMode.HALF_EVEN));
+			a2 = a2.subtract(a2.pow(2).subtract(a).divide(a2.multiply(new BigDecimal(2)), 30, RoundingMode.HALF_EVEN));
 		}
 		return a2;
 	}
